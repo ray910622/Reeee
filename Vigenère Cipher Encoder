@@ -1,0 +1,44 @@
+#include <stdio.h>
+
+int main() {
+    int n,i;
+    scanf("%d\n",&n);
+    int a[n];
+    char ch,b[n];
+
+    for(i=0;i<n;i++){
+        b[i]=getchar();
+        a[i]=b[i]-'a';
+    }
+    i=0;
+    scanf("\n");
+    ch=getchar();
+    for(;ch != '\n';ch=getchar()){
+        if (i == n){ i=0; }
+
+        if (ch>='A'&& ch<='Z'){
+            ch+=a[i];
+            i++;
+            if(ch>'Z'){
+                ch-=26;
+            }
+            printf("%c",ch);
+        }
+
+        else if (ch>='a' && ch<='z'){
+            if (a[i]<=('z'-ch)){
+                ch+=a[i];
+            }else {
+                ch-=26;
+                ch+=a[i];
+            }
+            printf("%c",ch);
+            i++;
+        }
+        else {
+            printf("%c",ch);
+        }
+    }
+
+    return 0;
+}
