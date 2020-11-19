@@ -1,0 +1,28 @@
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+    int mode;
+    double x,y,z,a,PI=3.14;
+    scanf("%d",&mode);
+    switch(mode) {
+        case 1:
+            scanf("%lf", &x);
+            a = x * x * x;
+            break;
+        case 2:
+            scanf("%lf%lf%lf",&x,&y,&z);
+            a=x*y*z;
+            break;
+        case 3:
+            scanf("%lf%lf",&x,&y);
+            a=PI*x*x*y;
+            break;
+        case 4:
+            scanf("%lf",&x);
+            a=sqrt(2)/12*x*x*x;
+            break;
+    }
+    printf("%.2lf",a);
+    return 0;
+}
