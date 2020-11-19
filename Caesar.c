@@ -22,6 +22,7 @@ int main(){
 				ch+=26;
 				}
 			else ch+=k;
-	}}
+		}
+	}
 	return 0;
 }
