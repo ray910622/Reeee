@@ -39,8 +39,6 @@ void spread(char* graph, int row,  int col){
     down(graph, row, col, p);
     left(graph, row, col, p);
     right(graph, row, col, p);
-
-    return;
 }
 
 
@@ -51,7 +49,6 @@ void up(char* graph, int row, int col, char* p){
             *p=RGB;
         else break;
     }
-    return;
 }
 
 void down(char* graph, int row, int col, char* p){
@@ -61,7 +58,6 @@ void down(char* graph, int row, int col, char* p){
             *p=RGB;
         else break;
     }
-    return;
 }
 
 void left(char* graph, int row, int col, char* p){
@@ -71,7 +67,6 @@ void left(char* graph, int row, int col, char* p){
             *p=RGB;
         else break;
     }
-    return;
 }
 
 void right(char* graph, int row, int col, char* p){
@@ -81,5 +76,4 @@ void right(char* graph, int row, int col, char* p){
             *p=RGB;
         else break;
     }
-    return;
 }
