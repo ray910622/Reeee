@@ -26,33 +26,34 @@ int main(void) {
     return 0;
 }
 
+int good=0;
+
 // TODO: fill the route matrix with 0's or 1‘s.
 // If there isn't any route, return false; otherwise, return true.
 bool visit(char maze[][n], int route[][n], int originX, int originY) {
-    int fail=0;
+
     route[originX][originY] = 1;
-    if (originX == n-1 && originY == n-1) return true;
 
-    if(maze[originX+1][originY] == 'r' && route[originX+1][originY] ==0 )
+    if (originX == n-1 && originY == n-1) good=1;
+
+    if(maze[originX+1][originY] == 'r' && route[originX+1][originY] ==0 && good == 0)
         visit(maze, route, originX+1, originY);
-    else fail++;
 
-    if(maze[originX][originY+1] == 'r' && route[originX][originY+1] ==0)
+
+    if(maze[originX][originY+1] == 'r' && route[originX][originY+1] ==0 && good == 0)
         visit(maze, route, originX, originY+1);
-    else fail++;
 
-    if(maze[originX-1][originY] == 'r' && route[originX-1][originY] ==0)
+
+    if(maze[originX-1][originY] == 'r' && route[originX-1][originY] ==0 && good == 0)
         visit(maze, route, originX-1, originY);
-    else fail++;
 
-    if(maze[originX][originY-1] == 'r' && route[originX][originY-1] ==0)
+
+    if(maze[originX][originY-1] == 'r' && route[originX][originY-1] ==0 && good == 0)
         visit(maze, route, originX, originY-1);
-    else fail++;
 
-    if (fail==4) {
-        maze[originX][originY] = 'w';
-        
-    }
-    if (maze[0][0] == 'w')
-        return false;
+    if (good == 0)
+        route[originX][originY] = 0;
+
+    return good;
+
 }
